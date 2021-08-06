@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>{{description}}</h2>
+
+
+<mat-dialog-content [formGroup]="form">
+
+  <mat-form-field>
+
+    <mat-select placeholder="Select type"
+                formControlName="type" [(value)]="selectedType">
+      <mat-option [value]="type.id" *ngFor="let type of types">
+        {{type.name}}
+      </mat-option>
+      </mat-select>
+
+  </mat-form-field>
+
+  <mat-form-field>
+
+    <input matInput
+           type="number"
+           placeholder="Amount"
+           formControlName="amount">
+    <span matPrefix>$&nbsp;</span>
+  </mat-form-field>
+  <mat-form-field>
+
+        <textarea matInput placeholder="Description"
+                  formControlName="description">
+
+        </textarea>
+
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+  <button class="mat-raised-button"
+          (click)="close()">
+    Close
+  </button>
+
+  <button class="mat-raised-button mat-primary"
+          (click)="save()">
+    Save
+  </button>
+
+</mat-dialog-actions>

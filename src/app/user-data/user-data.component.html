@@ -1,0 +1,13 @@
+<button mat-icon-button class="favorite-icon" aria-label="Profile" matTooltip="My profile"
+        [matMenuTriggerFor]="beforeMenu">
+  <mat-icon>account_circle</mat-icon>
+</button>
+<mat-menu #beforeMenu="matMenu" xPosition="before">
+  <button mat-menu-item>
+    <label>{{user.name}}</label>
+  </button>
+  <button mat-menu-item (click)="logOut()">
+    <label>Log out</label>
+  </button>
+
+</mat-menu>

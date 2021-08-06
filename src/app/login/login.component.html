@@ -1,0 +1,29 @@
+<main>
+  <div class="login-container">
+    <section class="login" id="login">
+      <header>
+        <h2>My expenses</h2>
+        <h4>Authorization</h4>
+      </header>
+      <div class="login-form">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your login</mat-label>
+          <input matInput [formControl]="login" required [(ngModel)]="userLogin">
+          <mat-error *ngIf="login.invalid">{{getLoginError()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required [(ngModel)]="userPassword">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="password.invalid">{{getPasswordError()}}</mat-error>
+        </mat-form-field>
+        <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+        <div class="submit-container">
+          <button mat-flat-button color="primary" (click)="doLogin()" [disabled]="loading">Sign in</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

@@ -1,0 +1,8 @@
+<button mat-icon-button class="favorite-icon" aria-label="Notifications" matTooltip="My notifications" [matMenuTriggerFor]="beforeMenu">
+  <mat-icon [matBadge]="unreadNotifications.length" matBadgeColor="warn" matBadgeSize="small">notifications</mat-icon>
+</button>
+<mat-menu #beforeMenu="matMenu" xPosition="before">
+  <button mat-menu-item *ngFor="let notif of unreadNotifications">
+    <label>{{notif.message}}</label>
+  </button>
+</mat-menu>

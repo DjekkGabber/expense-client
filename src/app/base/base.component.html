@@ -1,0 +1,34 @@
+<main class="home">
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+            (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My expenses</span>
+    <span class="toolbar-spacer"></span>
+    <app-user-data></app-user-data>
+    <app-notif></app-notif>
+    <button mat-icon-button class="example-icon" aria-label="Share this app" matTooltip="Share with">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-drawer-container class="drawer-container" autosize>
+    <mat-drawer #drawer mode="side" opened class="drawer-sidenav">
+      <mat-selection-list [multiple]="false">
+        <mat-list-option value="Home" routerLink="/main/dashboard" routerLinkActive="active">
+          Home
+        </mat-list-option>
+<!--        <mat-list-option value="My statistics" routerLink="/main/statistics" routerLinkActive="active">-->
+<!--          My statistics-->
+<!--        </mat-list-option>-->
+<!--        <mat-list-option value="My statistics" routerLink="/main/profile" routerLinkActive="active">-->
+<!--          Profile-->
+<!--        </mat-list-option>-->
+      </mat-selection-list>
+    </mat-drawer>
+
+    <router-outlet></router-outlet>
+
+  </mat-drawer-container>
+</main>
